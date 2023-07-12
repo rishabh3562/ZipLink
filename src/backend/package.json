@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "backend for ZipLink",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "same as ZipLink"
+  },
+  "author": "Rishabh Dubey",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.1",
+    "validator": "^13.9.0" ,
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.2",
+    "shortid": "^2.2.16"
+   
+  }
+}
