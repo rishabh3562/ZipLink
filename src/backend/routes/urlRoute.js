@@ -5,7 +5,9 @@ const router = express.Router();
 const validator = require("validator");
 
 //get all
-
+router.get('/hello' ,(req,res)=>{
+res.send(["hello world"]);
+})
 
 
 //redirect

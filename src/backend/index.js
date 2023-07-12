@@ -6,8 +6,9 @@ dotenv.config();
 const mongoose = require("mongoose");
 const urlSchema = require("./models/url");
 const uri = process.env.Mongo_URL;
-
+const cors = require("cors");
 const urlRoute = require("./routes/urlRoute");
+app.use(cors());
 
 
 
