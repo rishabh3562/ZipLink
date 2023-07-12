@@ -1,0 +1,172 @@
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #f2f2f2, #d9d9d9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+.container:hover {
+  background: linear-gradient(135deg, #e2e2e2, #c9c9c9);
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.form-container label {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.form-container input[type='text'] {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #333333;
+  background-color: #f2f2f2;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1),
+              -3px -3px 10px rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.3s ease;
+}
+
+.form-container input[type='text']:focus {
+  outline: none;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1),
+              -4px -4px 10px rgba(255, 255, 255, 0.7);
+}
+
+.form-container button {
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: #4285f4;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1),
+              -3px -3px 10px rgba(255, 255, 255, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container button:hover {
+  background-color: #2f71e0;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1),
+              -4px -4px 10px rgba(255, 255, 255, 0.7);
+}
+
+.url-output {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #eaeaea;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1),
+              -3px -3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.url-output p {
+  color: #333333;
+}
+
+.url-output a {
+  color: #333333;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.container:before,
+.container:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 5px;
+  left: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.container:before {
+  filter: blur(20px);
+}
+
+.container:after {
+  filter: blur(40px);
+}
+
+/* Transition Effects */
+.form-container input[type='text'],
+.form-container button,
+.url-output {
+  transition: all 0.3s ease;
+}
+
+.form-container input[type='text']:focus,
+.form-container button:hover,
+.url-output:hover {
+  transform: translate(0, -2px);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.1),
+              -6px -6px 12px rgba(255, 255, 255, 0.7);
+}
+
+/* Iconography */
+.form-container button::before {
+  content: '\f002';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .container {
+    max-width: 90%;
+  }
+}
+
+/* Typography */
+.title {
+  font-size: 28px;
+}
+
+.form-container label {
+  font-size: 18px;
+}
+
+.form-container input[type='text'] {
+  font-size: 16px;
+}
+
+.form-container button {
+  font-size: 18px;
+}
+
+.url-output p {
+  font-size: 16px;
+}
