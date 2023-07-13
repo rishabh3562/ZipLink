@@ -1,5 +1,8 @@
-import React from 'react';
-import './generator.css';
+import React from "react";
+import "./generator.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import { proxy } from "../proxy";
+import axios from "axios";
 const Generator = () => {
   const handleSubmit = (e) => {
     e.preventDefault();

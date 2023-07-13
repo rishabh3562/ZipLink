@@ -26,10 +26,8 @@ function App() {
 
   return (
     <>
-    
-    <Generator/>
-      
-      </>
+      <Generator />
+    </>
   );
 }
 

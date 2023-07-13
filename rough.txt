@@ -1,0 +1,81 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import { proxy } from '../../proxy';
+const Shortener = () => {
+    const [redirectUrl, setRedirectUrl] = useState('');
+    const [shortId, setShortId] = useState('');
+    const [totalClicks, setTotalClicks] = useState(0);
+    const [analytics, setAnalytics] = useState([]);
+
+    const handleUrlChange = (e) => {
+        setRedirectUrl(e.target.value);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post(`${proxy}`, { redirectUrl });
+            const { id } = response.data;
+            setShortId(id);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const handleAnalytics = async (shortId) => {
+        try {
+            const response = await axios.get(`${proxy}/analytics/${shortId}`);
+            const { totalClicks, analytics } = response.data;
+            setTotalClicks(totalClicks);
+            setAnalytics(analytics);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    return (
+        <div>
+            <h1>URL Shortener</h1>
+
+            {shortId && (
+                <div>
+                    <p>
+                        URL Generated: <a href={`http://localhost:8000/url/${shortId}`}>{`http://localhost:8000/url/${shortId}`}</a>
+                    </p>
+                </div>
+            )}
+
+            <div>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="redirectUrl">Enter Original URL</label>
+                    <input
+                        type="text"
+                        id="redirectUrl"
+                        name="redirectUrl"
+                        value={redirectUrl}
+                        onChange={handleUrlChange}
+                        placeholder="https://example.com"
+                    />
+                    <button type="submit">Generate</button>
+                </form>
+            </div>
+
+            <div>
+                <button onClick={() => handleAnalytics(shortId)}>View Analytics</button>
+                {totalClicks > 0 && (
+                    <div>
+                        <p>Total Clicks: {totalClicks}</p>
+                        <ul>
+                            {analytics.map((item, index) => (
+                                <li key={index}>Timestamp: {item.timestamp}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+export default Shortener;
