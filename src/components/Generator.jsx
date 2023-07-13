@@ -1,12 +1,20 @@
-import React from "react";
+import React ,{useState,useEffect}from "react";
 import "./generator.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { proxy } from "../proxy";
 import axios from "axios";
 const Generator = () => {
+const [promise, setpromise] = useState("Loading...")
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    const redirectUrl = e.target.redirectUrl.value;
+const res=axios.get(`${proxy.url}/hello`)
+    res.then((res)=>{
+      setpromise(res.data[0]?res.data[0]:"Loading...")
+    }).catch((err)=>{
+      setpromise(err)
+    })
   };
 
   return (
@@ -33,6 +41,11 @@ const Generator = () => {
           />
           <button type="submit">Generate</button>
         </form>
+      </div>
+      <div className="form-container">
+        <p>
+          promise statr: {promise}
+        </p>
       </div>
     </div>
   );
