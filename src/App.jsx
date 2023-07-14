@@ -27,6 +27,9 @@ function App() {
   return (
     <>
       <Generator />
+      {/* count: {count} */}
+      {/* <br /> */}
+      {/* error: {error} */}
     </>
   );
 }

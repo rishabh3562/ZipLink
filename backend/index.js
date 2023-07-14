@@ -6,16 +6,9 @@ dotenv.config();
 const mongoose = require("mongoose");
 const urlSchema = require("./models/url");
 const uri = process.env.Mongo_URL;
-const cors = require("cors");
+// const cors = require("cors");
 const urlRoute = require("./routes/urlRoute");
-app.use(
-    cors({
-        origin: "http://localhost:5713", // Replace with your frontend URL and port number
-        methods: ["GET", "POST", "PUT", "DELETE"],
-        allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "x-access-token", "x-refresh-token", "user-token"],
-    })
-);
-
+// app.use(cors());
 
 
 

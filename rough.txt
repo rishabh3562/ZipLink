@@ -79,3 +79,34 @@ const Shortener = () => {
 };
 
 export default Shortener;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "proxy": {
+    "/url/": {
+      "target": "http://localhost:8000",
+      "changeOrigin": true
+    }
+  }
